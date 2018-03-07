@@ -1,0 +1,22 @@
+{
+  "name": "gmobile-boilerplate",
+  "version": "1.0.0",
+  "description": "```sh",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/jimmybae/gmobile-boilerplate.git"
+  },
+  "keywords": [
+    "backbone"
+  ],
+  "author": "Jimmy Bae",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jimmybae/gmobile-boilerplate/issues"
+  },
+  "homepage": "https://github.com/jimmybae/gmobile-boilerplate#readme"
+}
