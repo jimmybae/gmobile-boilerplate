@@ -1,14 +1,13 @@
 ## GMobile Boilerplate
 ```sh
 $ npm install
-$ npm run build
-$ node temp/express.js
+$ npm run start:dev
 ```
-browser `http://localhost:3000`
+browser `http://localhost:8080`
 
 ### apply webpack
 - css loader
 - babel loader
 - eslint loader
 - lodash example
-- express
+- express -> webpack-dev-server
