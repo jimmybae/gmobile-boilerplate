@@ -10,6 +10,6 @@ app.get('/', function(req,res){
   res.render('index.html');
 });
 
-var server = app.listen(80, function(){
-  console.log("Express server has started on port 80");
+var server = app.listen(3000, function(){
+  console.log("Express server has started on port 3000");
 });
