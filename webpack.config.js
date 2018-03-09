@@ -1,6 +1,9 @@
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = {
   entry: {
-  	'entry': './index.js'
+  	'entry': './_inqubating/index.js'
 	},  
   output: {
     filename: 'bundle.js'
@@ -35,5 +38,16 @@ module.exports = {
         }
       }
     ]
-  }
+  },
+  devServer: {
+    contentBase: path.join(__dirname, 'dist'),
+    compress: true,
+    port: 9000
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: 'GMobile Boilerplate',
+      template: './_inqubating/index.html'
+    })
+  ]
 };
