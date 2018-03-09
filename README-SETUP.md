@@ -8,3 +8,9 @@ $ git commit -m "first commit"
 $ git remote add origin git@github.com:jimmybae/gmobile-boilerplate.git
 $ git push -u origin master
 ```
+
+### webpack
+```sh
+$ npm i webpack --save-dev
+$ npm i webpack-cli --save-dev
+```
