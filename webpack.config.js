@@ -1,9 +1,11 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
+  mode: 'development',
   entry: {
-  	'entry': './_inqubating/index.js'
+  	'entry': './src/main.js'
 	},  
   output: {
     filename: 'bundle.js'
@@ -28,14 +30,19 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel-loader',
         options: {
-          presets: [[
-            'env', {
-              targets: {
-                browsers: ['last 2 versions']
-              }
-            }
-          ]]
+          presets: ['babel-preset-env']
         }
+      },
+      {
+        test: /\.html$/,
+        loader: 'underscore-template-loader',
+        query: {
+          engine: 'lodash',
+        }
+      },
+      {
+        test: /\.json$/,
+        loader: 'json-loader'
       }
     ]
   },
@@ -47,7 +54,12 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: 'GMobile Boilerplate',
-      template: './_inqubating/index.html'
+      template: './src/index.html'
+    }),
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      _: 'underscore',
+      Backbone: 'backbone'
     })
   ]
 };

@@ -1,0 +1,9 @@
+.completed {
+  text-decoration-line: line-through;
+}
+.view {
+  display: inline-block;
+}
+.hidden {
+  display: none;
+}

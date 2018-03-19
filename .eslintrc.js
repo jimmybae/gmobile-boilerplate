@@ -1,12 +1,17 @@
 module.exports = {
   "rules": {
-    "no-console": "off"
   },
-  "extends": "airbnb-base",
+  "extends": "plugin:backbone/recommended",
   "plugins": [
-    "import"
+    "backbone"
   ],
   "env": {
-    "browser": true
+    "browser": true,
+    "node": true,
+    "es6": true,
+    "mocha": true
+  },
+  "parserOptions": {
+    "sourceType": "module"
   }
 };

@@ -10,4 +10,9 @@ browser `http://localhost:8080`
 - css loader
 - babel loader
 - eslint loader
+- html loader
 - lodash example
+- html-webpack-plugin
+
+### eslint-plugin-ackbone
+[GitHub](https://github.com/ilyavolodin/eslint-plugin-backbone)
