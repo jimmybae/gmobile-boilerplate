@@ -3,12 +3,12 @@ import todoTemplate from '../templates/todo.html';
 
 const TodoView = Backbone.View.extend({
   events: {
-    'click #completed': 'toggle',
-    'click #delete': 'delete',
-    'click #edit': 'edit',
-    'click #confirm': 'confirm',
-    'click #cancel': 'edit',
-    'keypress #editTitle': 'editTitle'
+    'click #completed': 'clickToggle',
+    'click #delete': 'clickDelete',
+    'click #edit': 'clickEdit',
+    'click #confirm': 'clickConfirm',
+    'click #cancel': 'clickEdit',
+    'keypress #edit-title': 'keypressEditTitle'
   },
   initialize() {
     this.listenTo(this.model, 'change', this.render);
@@ -19,30 +19,12 @@ const TodoView = Backbone.View.extend({
   render() {
     this.$el.html(todoTemplate(this.model.toJSON()));
     this.$title = this.$('.title');
+    this.toggleVisible();
     this.$title.toggleClass('completed', this.model.get('completed'));
-    this.$editTitle = this.$('#editTitle');
+    
     this.$view = this.$('.view');
+    this.$editTitle = this.$('#edit-title');
     return this;
-  },
-  toggle() {
-    this.$title.toggleClass('completed', !this.model.get('completed'));
-    this.model.toggle();
-  },
-  delete() {
-    this.model.destroy();
-  },
-  editTitle(e) {
-    if (e.which !== 13) {
-      return;
-    }
-    this.confirm();
-  },
-  edit() {
-    this.$view.toggleClass('hidden');
-    this.$editTitle.val('').focus().val(this.model.get('title'));
-  },
-  confirm() {
-    this.model.save('title', this.$('#editTitle').val());
   },
   toggleVisible() {
     this.$el.toggleClass('hidden', this.isHidden());
@@ -53,6 +35,27 @@ const TodoView = Backbone.View.extend({
       (!isCompleted && common.todosFilter === 'completed') ||
       (isCompleted && common.todosFilter === 'notcompleted')
     );
+  },
+  clickToggle() {
+    this.$title.toggleClass('completed', !this.model.get('completed'));
+    this.model.toggle();
+  },
+  clickDelete() {
+    this.model.destroy();
+  },
+  clickEdit() {
+    console.log(1);
+    this.$view.toggleClass('hidden');
+    this.$editTitle.val('').focus().val(this.model.get('title'));
+  },
+  clickConfirm() {
+    this.model.save('title', this.$('#edit-title').val());
+  },
+  keypressEditTitle(e) {
+    if (e.which !== 13) {
+      return;
+    }
+    this.clickConfirm();
   }
 });
 export default TodoView;

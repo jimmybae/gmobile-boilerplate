@@ -4,10 +4,10 @@ import appTemplate from '../templates/app.html';
 
 const AppView = Backbone.View.extend({
   events: {
-    'click #add': 'addTodo',
-    'keypress #title': 'addTodoEnter',
-    'click #all-toggle': 'allToggle',
-    'click #completed-del': 'completedDel'
+    'click #add': 'clickAdd',
+    'keypress #title': 'keypressTitle',
+    'click #all-toggle': 'clickAllToggle',
+    'click #completed-del': 'clickCompletedDel'
   },
   initialize(options) {
     this.$router = options.appRouter;
@@ -20,7 +20,6 @@ const AppView = Backbone.View.extend({
 
     this.listenTo(this.collection, 'add', this.addOne);
     this.listenTo(this.collection, 'reset', this.addAll);
-    this.listenTo(this.collection, 'remove', this.remove);
     this.listenTo(this.collection, 'all', this.render);
     this.listenTo(this.collection, 'filter', this.filterAll);
     this.listenTo(this.collection, 'change:completed', this.filterOne);
@@ -29,27 +28,13 @@ const AppView = Backbone.View.extend({
     });
   },
   el: '#app',
-  remove() {
-    if (this.collection.length === 0 && common.todosFilter !== 'all') {
-      this.$router.navigate('#all', true);
-    }
-  },
   render() {
     const completed = this.collection.completed().length;
     const notCompleted = this.collection.notcompleted().length;
     this.$headerAll.html(appTemplate({
-      filter: 'all',
-      cnt: this.collection.length,
-      current: common.todosFilter
-    }));
-    this.$headerNotCompleted.html(appTemplate({
-      filter: 'notcompleted',
-      cnt: notCompleted,
-      current: common.todosFilter
-    }));
-    this.$headerCompleted.html(appTemplate({
-      filter: 'completed',
-      cnt: completed,
+      cnt1: this.collection.length,
+      cnt2: notCompleted,
+      cnt3: completed,
       current: common.todosFilter
     }));
     return this;
@@ -62,13 +47,18 @@ const AppView = Backbone.View.extend({
     this.$list.html('');
     this.collection.each(this.addOne, this);
   },
-  addTodoEnter(e) {
-    if (e.which !== 13) {
-      return;
+  filterAll() {
+    if (common.todosFilter === 'completed') {
+      this.$all.checked = true;
+    } else {
+      this.$all.checked = false;
     }
-    this.addTodo();
+    this.collection.each(this.filterOne, this);
   },
-  addTodo() {
+  filterOne(todo) {
+    todo.trigger('visible');
+  },
+  clickAdd() {
     if (!this.$title.val().trim()) {
       return;
     }
@@ -81,26 +71,21 @@ const AppView = Backbone.View.extend({
     this.$title.val('');
     this.$title.focus();
   },
-  filterOne(todo) {
-    todo.trigger('visible');
-  },
-  filterAll() {
-    if (common.todosFilter === 'completed') {
-      this.$all.checked = true;
-    } else {
-      this.$all.checked = false;
+  keypressTitle(e) {
+    if (e.which !== 13) {
+      return;
     }
-    this.collection.each(this.filterOne, this);
+    this.clickAdd();
   },
-  completedDel() {
-    _.invoke(this.collection.completed(), 'destroy');
-    return false;
-  },
-  allToggle() {
+  clickAllToggle() {
     const completed = this.$all.checked;
     this.collection.each((todo) => {
       todo.save('completed', completed);
     });
+  },
+  clickCompletedDel() {
+    _.invoke(this.collection.completed(), 'destroy');
+    return false;
   }
 });
 export default AppView;

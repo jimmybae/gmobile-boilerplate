@@ -37,7 +37,7 @@ module.exports = {
         test: /\.html$/,
         loader: 'underscore-template-loader',
         query: {
-          engine: 'lodash',
+          engine: 'lodash'
         }
       },
       {

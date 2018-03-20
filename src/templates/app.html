@@ -1,2 +1,3 @@
-<%=current === filter ? '#' : ''%>
-<%=cnt > 0 ? `<a href="#${filter}">${filter}: ${cnt}</a>` : `${filter}: ${cnt}` %>
+<%=current === 'all' ? '#' : ''%><a href="#all">All: <%=cnt1%></a><br />
+<%=current === 'notcompleted' ? '#' : ''%><a href="#notcompleted">Not Completed: <%=cnt2%></a><br />
+<%=current === 'completed' ? '#' : ''%><a href="#completed">Complated: <%=cnt3%></a>
