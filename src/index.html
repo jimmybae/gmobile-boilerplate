@@ -1,25 +1,17 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
-    <title><%= htmlWebpackPlugin.options.title %></title>
-  </head>
-  <body>
-    <div id="app">
-      <div id="header">
-        todos (webpack + Backbone.js)<br/>
-        <div id="all"></div>
-        <div id="notcompleted"></div>
-        <div id="completed"></div>
-      </div>
-      <div>
-        <input type="text" id="title" name="title" placeholder="todo"/>
-        <button id="add" name="add">add</button>
-        <input type="checkbox" id="all-toggle" name="all-toggle">all toggle
-        <button id="completed-del" name="completed-del">completed delete</button>
-      </div>
-      <ul id="list">
-      </ul>
+
+<head>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+  <title>
+    <%= htmlWebpackPlugin.options.title %>
+  </title>
+</head>
+<body>
+  <div class="container">
+    <div class="mx-auto" id="app" style="width: 400px;">
     </div>
-  </body>
+  </div>
+</body>
+
 </html>

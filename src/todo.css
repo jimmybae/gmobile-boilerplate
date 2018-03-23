@@ -1,9 +1,13 @@
 .completed {
   text-decoration-line: line-through;
 }
-.view {
-  display: inline-block;
+.title {
+  font-size: 21px;
 }
 .hidden {
   display: none;
+}
+.icon-btn {
+  vertical-align: middle;
+  cursor: pointer;
 }

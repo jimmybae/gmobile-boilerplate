@@ -1,3 +1,6 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'material-design-icons/iconfont/material-icons.css';
+import 'bootstrap';
 import Router from './router';
 import './todo.css';
 import AppView from './views/app';

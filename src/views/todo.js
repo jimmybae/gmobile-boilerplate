@@ -4,6 +4,7 @@ import todoTemplate from '../templates/todo.html';
 const TodoView = Backbone.View.extend({
   events: {
     'click #completed': 'clickToggle',
+    'click .view.title': 'clickToggle',
     'click #delete': 'clickDelete',
     'click #edit': 'clickEdit',
     'click #confirm': 'clickConfirm',
@@ -24,6 +25,8 @@ const TodoView = Backbone.View.extend({
     
     this.$view = this.$('.view');
     this.$editTitle = this.$('#edit-title');
+    this.$el.addClass('list-group-item p-2');
+
     return this;
   },
   toggleVisible() {
@@ -44,7 +47,6 @@ const TodoView = Backbone.View.extend({
     this.model.destroy();
   },
   clickEdit() {
-    console.log(1);
     this.$view.toggleClass('hidden');
     this.$editTitle.val('').focus().val(this.model.get('title'));
   },

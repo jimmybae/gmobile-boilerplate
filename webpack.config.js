@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   mode: 'development',
   entry: {
-  	'entry': './src/main.js'
+    entry: './src/main.js'
 	},  
   output: {
     filename: 'bundle.js'
@@ -43,7 +43,8 @@ module.exports = {
       {
         test: /\.json$/,
         loader: 'json-loader'
-      }
+      },
+      { test: /\.(jpe?g|png|gif|svg|eot|woff|ttf|svg|woff2)$/, loader: "file-loader?name=[name].[ext]" }
     ]
   },
   devServer: {
@@ -59,7 +60,8 @@ module.exports = {
     new webpack.ProvidePlugin({
       $: 'jquery',
       _: 'underscore',
-      Backbone: 'backbone'
+      Backbone: 'backbone',
+      Popper: 'popper.js'
     })
   ]
 };

@@ -16,3 +16,9 @@ browser `http://localhost:8080`
 
 ### eslint-plugin-ackbone
 [GitHub](https://github.com/ilyavolodin/eslint-plugin-backbone)
+
+## bootstrap
+```sh
+npm install --save bootstrap
+npm install --save jquery popper.js
+```

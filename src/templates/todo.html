@@ -1,7 +1,17 @@
-<input class="view" type="checkbox" id="completed" name="completed" <%=completed ? 'checked' : '' %>>
-<div class="view title"><%=title%></div>
-<input type="text" class="view hidden" id="edit-title" name="edit-title" value="<%=title%>">
-<button class="view" id="edit" name="edit">edit</button>
-<button class="view" id="delete" name="delete">delete</button>
-<button class="view hidden" id="confirm" name="confirm">confirm</button>
-<button class="view hidden" id="cancel" name="cancel">cancel</button>
+<div class="row align-items-center">
+  <div class="col-1 view">
+    <i class="material-icons text-secondary icon-btn" id="completed"><%=completed ? 'check_box' : 'check_box_outline_blank' %></i>
+  </div>
+  <div class="col-8 view">
+    <span class="view title"><%=title%></span>
+  </div>
+  <div class="col-9 view hidden">
+    <input type="text" class="form-control form-control-sm" id="edit-title" name="edit-title" value="<%=title%>">
+  </div>
+  <div class="col-3 text-right ">
+    <i class="material-icons text-success icon-btn view" id="edit">mode_edit</i>
+    <i class="material-icons text-danger icon-btn view" id="delete">delete</i>
+    <i class="material-icons text-success icon-btn view hidden" id="confirm">save</i>
+    <i class="material-icons text-warning icon-btn view hidden" id="cancel">cancel</i>
+  </div>
+</div>
