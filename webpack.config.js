@@ -12,38 +12,12 @@ module.exports = {
   },
   module: {
     rules: [
-      {
-        test: /\.css$/,
-        use: [
-          'style-loader',
-          'css-loader'
-        ]
-      },
-      {
-        enforce: 'pre',
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: 'eslint-loader'
-      },
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: 'babel-loader',
-        options: {
-          presets: ['babel-preset-env']
-        }
-      },
-      {
-        test: /\.html$/,
-        loader: 'underscore-template-loader',
-        query: {
-          engine: 'lodash'
-        }
-      },
-      {
-        test: /\.json$/,
-        loader: 'json-loader'
-      },
+      { test: /\.css$/, use: [ 'style-loader', 'css-loader' ] },
+      { test: /\.js$/, loader: 'eslint-loader', exclude: /node_modules/, enforce: 'pre' },
+      { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/, options: { presets: ['babel-preset-env'] } },
+      //{ test: /\.html$/, loader: 'underscore-template-loader', query: { engine: 'lodash' } },
+      { test: /\.html$/, loader: 'html-loader' },
+      { test: /\.json$/, loader: 'json-loader' },
       { test: /\.(jpe?g|png|gif|svg|eot|woff|ttf|svg|woff2)$/, loader: "file-loader?name=[name].[ext]" }
     ]
   },
@@ -54,7 +28,6 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'GMobile Boilerplate',
       template: './src/index.html'
     }),
     new webpack.ProvidePlugin({

@@ -17,8 +17,9 @@ const TodoView = Backbone.View.extend({
     this.listenTo(this.model, 'visible', this.toggleVisible);
   },
   tagName: 'li',
+  template: _.template(todoTemplate),
   render() {
-    this.$el.html(todoTemplate(this.model.toJSON()));
+    this.$el.html(this.template(this.model.toJSON()));
     this.$title = this.$('.title');
     this.toggleVisible();
     this.$title.toggleClass('completed', this.model.get('completed'));

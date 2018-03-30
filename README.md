@@ -22,3 +22,39 @@ browser `http://localhost:8080`
 npm install --save bootstrap
 npm install --save jquery popper.js
 ```
+
+## babel-jest
+* install
+[Getting Started · Jest](https://facebook.github.io/jest/docs/en/getting-started.html)
+```sh
+$ npm i -D jest babel-jest
+```
+* package.json
+```json
+{
+  "name": "gmobile-boilerplate",
+  ......
+  "scripts": {
+    ......
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  ......
+```
+
+* .babelrc
+```json
+{
+  "presets": [["env", {"modules": false}]],
+  "env": {
+    "test": {
+      "presets": [["env"]]
+    }
+  }
+}
+```
+* execution
+```sh
+$ npm run test
+$ npm run test:watch
+```

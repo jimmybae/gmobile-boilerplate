@@ -23,8 +23,9 @@ const AppView = Backbone.View.extend({
     });
   },
   el: '#app',
+  template: _.template(appTemplate),
   render() {
-    this.$el.html(appTemplate());
+    this.$el.html(this.template());
     this.$list = this.$('#list');
     this.$headerNav = this.$('.header-nav');
     this.$headerCompleted = this.$('.header-nav #completed');
@@ -42,7 +43,8 @@ const AppView = Backbone.View.extend({
   header(e) {
     const completed = this.collection.completed().length;
     const notCompleted = this.collection.notcompleted().length;
-    this.$headerNav.html(headerTemplate({
+    const header = _.template(headerTemplate);
+    this.$headerNav.html(header({
       cnt1: this.collection.length,
       cnt2: notCompleted,
       cnt3: completed,
