@@ -5,9 +5,9 @@ const body = $('body').append('<ul class="list-group list-group-flush" id="list"
 const todo = new TodoModel({
   completed: false,
   order: 1,
-  title: "dummy"
+  title: 'dummy'
 });
-todo.url = "/dummy";
+todo.url = '/dummy';
 
 const todoView = new TodoView({ model: todo }).render();
 body.find('#list').append(todoView.el);

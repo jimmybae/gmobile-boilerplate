@@ -48,7 +48,8 @@ describe('[AppView]', () => {
     e.which = 13;
     view.$el.find('#title').focus().trigger(e);
 
-    jest.runAllTimers();
+    //jest.runAllTimers();
+    jest.runOnlyPendingTimers();
 
     expect(view.$el.find('.view.title:not(.completed)').length).toBe(2);
   });

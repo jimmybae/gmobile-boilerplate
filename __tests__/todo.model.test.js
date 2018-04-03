@@ -3,9 +3,9 @@ import TodoModel from '../src/models/todo';
 const todo = new TodoModel({
   completed: false,
   order: 1,
-  title: "dummy"
+  title: 'dummy'
 });
-todo.url = "/dummy";
+todo.url = '/dummy';
 
 describe('[TodoModel]', () => {
   it('init', () => {
