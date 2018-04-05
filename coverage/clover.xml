@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1522383267291" clover="3.2.0">
-  <project timestamp="1522383267292" name="All files">
+<coverage generated="1522805468978" clover="3.2.0">
+  <project timestamp="1522805468978" name="All files">
     <metrics statements="93" coveredstatements="93" conditionals="18" coveredconditionals="18" methods="4" coveredmethods="4" elements="115" coveredelements="115" complexity="0" loc="93" ncloc="93" packages="7" files="12" classes="12">
       <package name="gmobile-boilerplate">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
