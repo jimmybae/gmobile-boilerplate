@@ -1,1 +1,10 @@
+__snapshots__
+_inqubating
+_practice
+coverage
+dist
 node_modules
+.eslintrc-airbnb.js
+goorm.manifest
+package-lock.json
+README-SETUP.md
