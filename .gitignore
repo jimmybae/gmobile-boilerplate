@@ -4,6 +4,7 @@ _practice
 coverage
 dist
 node_modules
+.DS_Store
 .eslintrc-airbnb.js
 goorm.manifest
 package-lock.json
