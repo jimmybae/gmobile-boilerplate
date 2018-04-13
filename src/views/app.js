@@ -2,6 +2,7 @@ import common from '../common';
 import TodoView from './todo';
 import headerTemplate from '../templates/header.html';
 import appTemplate from '../templates/app.html';
+import octicons from 'octicons';
 
 const AppView = Backbone.View.extend({
   events: {
@@ -25,7 +26,9 @@ const AppView = Backbone.View.extend({
   el: '#app',
   template: _.template(appTemplate),
   render() {
-    this.$el.html(this.template());
+    this.$el.html(this.template({
+      octicons: octicons
+    }));
     this.$list = this.$('#list');
     this.$headerNav = this.$('.header-nav');
     this.$headerCompleted = this.$('.header-nav #completed');
@@ -90,9 +93,9 @@ const AppView = Backbone.View.extend({
     this.clickAdd();
   },
   clickAllToggle() {
-    const completed = this.$all.text() === 'check_box' ? false : true;
-    const checkBox = completed ? 'check_box' : 'check_box_outline_blank';
-    this.$all.text(checkBox);
+    const completed = this.$all.find('.octicon-inbox').length > 0 ? false : true;
+    const checkBox = completed ? octicons.inbox.toSVG({class: 'octicon-24'}) : octicons.check.toSVG({class: 'octicon-24'});
+    this.$all.html(checkBox);
     this.collection.each((todo) => {
       todo.save('completed', completed);
     });

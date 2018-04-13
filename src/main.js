@@ -1,5 +1,4 @@
 import 'bootstrap/dist/css/bootstrap.css';
-import 'material-design-icons/iconfont/material-icons.css';
 import 'bootstrap';
 import Router from './router';
 import './todo.css';

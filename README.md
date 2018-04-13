@@ -50,7 +50,7 @@ $ npm run test:coverage
 * [Jest](https://facebook.github.io/jest/) - Delightful JavaScript Testing (Easy Setup, Instant Feedback, Snapshot Testing)
 * [Lodash](https://lodash.com/) - A modern JavaScript utility library delivering modularity, performance & extras
 * [Bootstrap](https://getbootstrap.com/) - Bootstrap is a free front-end framework for faster and easier web development
-* [Material icons](https://material.io/icons/) - Material icons are beautifully crafted, delightful, and easy to use in your web, Android, and iOS projects
+* [Octicons](https://octicons.github.com/) - A scalable set of icons handcrafted with by GitHub.
 
 ## License
 MIT

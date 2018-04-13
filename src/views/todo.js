@@ -1,5 +1,6 @@
 import common from '../common';
 import todoTemplate from '../templates/todo.html';
+import octicons from 'octicons';
 
 const TodoView = Backbone.View.extend({
   events: {
@@ -19,7 +20,10 @@ const TodoView = Backbone.View.extend({
   tagName: 'li',
   template: _.template(todoTemplate),
   render() {
-    this.$el.html(this.template(this.model.toJSON()));
+    this.$el.html(this.template({
+        model: this.model.toJSON(),
+        octicons: octicons
+      }));
     this.$title = this.$('.title');
     this.toggleVisible();
     this.$title.toggleClass('completed', this.model.get('completed'));

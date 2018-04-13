@@ -1,17 +1,17 @@
 <div class="row align-items-center">
-  <div class="col-1 view">
-    <i class="material-icons text-secondary icon-btn" id="completed"><%=completed ? 'check_box' : 'check_box_outline_blank' %></i>
+  <div class="col-1 view pr-0">
+    <span class="icon-btn" id="completed"><%=model.completed ? octicons.check.toSVG({class: 'octicon-24'}) : octicons.inbox.toSVG({class: 'octicon-24'})%></span>
   </div>
   <div class="col-8 view">
-    <span class="view title"><%=title%></span>
+    <span class="view title"><%=model.title%></span>
   </div>
   <div class="col-9 view hidden">
     <input type="text" class="form-control form-control-sm" id="edit-title" name="edit-title" value="<%=title%>">
   </div>
-  <div class="col-3 text-right ">
-    <i class="material-icons text-success icon-btn view" id="edit">mode_edit</i>
-    <i class="material-icons text-danger icon-btn view" id="delete">delete</i>
-    <i class="material-icons text-success icon-btn view hidden" id="confirm">save</i>
-    <i class="material-icons text-warning icon-btn view hidden" id="cancel">cancel</i>
+  <div class="col-3 text-right pl-0">
+    <span class="icon-btn view" id="edit"><%=octicons.pencil.toSVG({class: 'octicon-24'})%></span>
+    <span class="icon-btn view" id="delete"><%=octicons.trashcan.toSVG({class: 'octicon-24'})%></span>
+    <span class="icon-btn view hidden" id="confirm"><%=octicons.check.toSVG({class: 'octicon-24'})%></span>
+    <span class="icon-btn view hidden" id="cancel"><%=octicons.reply.toSVG({class: 'octicon-24'})%></span>
   </div>
 </div>
