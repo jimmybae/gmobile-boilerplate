@@ -18,7 +18,7 @@ module.exports = {
       { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/, options: { presets: ['babel-preset-env'] } },
       //{ test: /\.html$/, loader: 'underscore-template-loader', query: { engine: 'lodash' } },
       { test: /\.html$/, loader: 'html-loader' },
-      { test: /\.json$/, loader: 'json-loader' },
+      { test: /\.json$/, loader: 'json-loader', exclude: /node_modules/ },
       //{ test: /\.(jpe?g|png|gif|svg|eot|woff|ttf|svg|woff2)$/, loader: "file-loader?name=[name].[ext]" }
       { test: /\.(ico|png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'url-loader', options: { name: '[hash].[ext]', limit: 10000 } }
     ]
@@ -38,6 +38,6 @@ module.exports = {
       Backbone: 'backbone',
       Popper: 'popper'
     }),
-    new BundleAnalyzerPlugin()
+    // new BundleAnalyzerPlugin()
   ]
 };
