@@ -63,6 +63,11 @@ const AppView = Backbone.View.extend({
     this.collection.each(this.addOne, this);
   },
   filterAll() {
+    if(common.todosFilter === 'completed') {
+      this.$all.html(octicons.inbox.toSVG({class: 'octicon-24'}));
+    } else {
+      this.$all.html(octicons.check.toSVG({class: 'octicon-24'}));
+    }
     this.collection.each(this.filterOne, this);
   },
   filterOne(todo) {

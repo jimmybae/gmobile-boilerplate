@@ -53,9 +53,9 @@ describe('[AppView]', () => {
 
     expect(view.$el.find('.view.title:not(.completed)').length).toBe(2);
   });
-  
+
   it('[ui] all-toggle button click', () => {
-    view.$el.find('#all-toggle').click();
+    view.$el.find('.all-toggle.icon-btn').click();
     // expect(view.$el.find('#list').html()).toMatchSnapshot();
     expect(view.$el.find('.view.title.completed').length).toBe(2);
   });
@@ -74,7 +74,7 @@ describe('[AppView]', () => {
   });
   
   it('[ui] all-toggle button click', () => {
-    view.$el.find('#all-toggle').click();
+    view.$el.find('.all-toggle.icon-btn').click();
     // expect(view.$el.find('#list').html()).toMatchSnapshot();
     expect(view.$el.find('li.hidden').length).toBe(2);
   });

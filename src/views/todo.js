@@ -21,9 +21,9 @@ const TodoView = Backbone.View.extend({
   template: _.template(todoTemplate),
   render() {
     this.$el.html(this.template({
-        model: this.model.toJSON(),
-        octicons: octicons
-      }));
+      model: this.model.toJSON(),
+      octicons: octicons
+    }));
     this.$title = this.$('.title');
     this.toggleVisible();
     this.$title.toggleClass('completed', this.model.get('completed'));
